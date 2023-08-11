@@ -111,6 +111,10 @@ functions:
     handler: com.serverless.handler.UpdateVehicleById
     timeout: 15
     memorySize: 1024
+  FetchVehiclesByType:
+    handler: com.serverless.handler.FetchVehiclesByType
+    timeout: 15
+    memorySize: 1024
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
