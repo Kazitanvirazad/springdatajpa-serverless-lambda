@@ -21,3 +21,9 @@ insert into vehicle (vehicle_name, vehicle_type, cc, tyre_brand) values
 select vehicle.* from vehicle;
 
 update vehicle set vehicle_type = 'Old byke' where vehicle_name = 'Royal Enfield Bullet 350';
+
+
+insert into vehicle (vehicle_name, vehicle_type, cc, tyre_brand) values
+('Ford mustang','Car','2500','Bridgestone'),
+('Toyota Fortuna','Car','1800','Metzelller'),
+('Honda City','Car','1200','CEAT');

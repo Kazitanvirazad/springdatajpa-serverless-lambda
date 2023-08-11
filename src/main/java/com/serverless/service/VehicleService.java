@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -87,4 +88,18 @@ public class VehicleService {
         return ResponseObject.builder().setError(true).setMessage("Vehicle does not exists!").build();
     }
 
+    public ResponseObject getVehiclesByType(String vehicleType) {
+        List<Vehicle> vehicles = vehicleRepo.findAllByType(vehicleType);
+        List<VehicleDTO> vehicleDTOS = new ArrayList<>();
+        if (!CollectionUtils.isEmpty(vehicles)) {
+            vehicles.stream().forEach(vehicle -> {
+                vehicleDTOS.add(new VehicleDTO(vehicle));
+            });
+            return ResponseObject.builder().setError(false).setData(vehicleDTOS).build();
+        } else {
+            return ResponseObject.builder().setError(true)
+                    .setMessage("Vehicles of type - " + vehicleType + " not found!")
+                    .build();
+        }
+    }
 }
